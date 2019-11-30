@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'database',
 ]
 
 MIDDLEWARE = [
@@ -75,8 +76,13 @@ WSGI_APPLICATION = 'telemedicineproject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'OPTIONS': {'options': '-c search_path=public'},
+        'NAME': 'database',
+        'USER': 'postgres',
+        'PASSWORD': 'bazadanych',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
